@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#070b18" />
+
+  <title>SkyRace — Neon Run</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <canvas id="game" aria-label="SkyRace game"></canvas>
+
+  <div class="hud" aria-live="polite">
+    <div class="topbar">
+      <div class="brand">
+        SkyRace
+        <span>NEON RUN / SYSTEM 01</span>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <small>SCORE</small>
+          <strong id="score">00000</strong>
+        </div>
+
+        <div class="stat">
+          <small>DISTANCE</small>
+          <strong><span id="distance">0</span><em> M</em></strong>
+        </div>
+
+        <div class="stat">
+          <small>BEST</small>
+          <strong id="best">00000</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="top-actions">
+      <button class="icon-btn" id="soundBtn"
+              aria-label="Toggle sound">♫</button>
+      <button class="icon-btn" id="pauseBtn"
+              aria-label="Pause game">Ⅱ</button>
+    </div>
+
+    <div class="hint" id="hint">
+      Keep moving · jump the gaps
+    </div>
+  </div>
+
+  <div class="controls" id="controls">
+    <div class="pad">
+      <button class="control" data-hold="left"
+              aria-label="Move left">‹</button>
+      <button class="control" data-hold="right"
+              aria-label="Move right">›</button>
+    </div>
+    <button class="control jump" id="jumpBtn"
+            aria-label="Jump">JUMP</button>
+  </div>
+
+  <div class="footer-hint">
+    A / D or ← / → to move · Space to jump · P to pause · R to restart
+  </div>
+
+  <!-- Start screen -->
+  <div class="overlay" id="startOverlay">
+    <div class="panel">
+      <div class="eyebrow">A new run begins</div>
+      <h1>Sky<span>Race</span></h1>
+      <p class="subtitle">
+        Race across the neon sky. Stay on the track,
+        leap over the gaps, and see how far you can go.
+      </p>
+      <button class="primary" id="startBtn">
+        Start racing ↗
+      </button>
+      <button class="secondary" id="howBtn">
+        Controls: Move · Jump · Survive
+      </button>
+    </div>
+  </div>
+
+  <!-- Pause screen -->
+  <div class="overlay hidden" id="pauseOverlay">
+    <div class="panel">
+      <div class="eyebrow">Run suspended</div>
+      <h1>Paused<span>.</span></h1>
+      <p class="subtitle">
+        Catch your breath. The track will be waiting.
+      </p>
+      <button class="primary" id="resumeBtn">Resume run</button>
+      <button class="secondary" id="restartPauseBtn">
+        Restart run
+      </button>
+    </div>
+  </div>
+
+  <!-- Game over screen -->
+  <div class="overlay hidden" id="gameOverOverlay">
+    <div class="panel">
+      <div class="eyebrow">Run complete</div>
+      <h1>Game<span> Over</span></h1>
+      <p class="subtitle">
+        The sky claimed this run. Ready to beat your record?
+      </p>
+
+      <div class="result-grid">
+        <div class="result">
+          <small>FINAL SCORE</small>
+          <strong id="finalScore">0</strong>
+        </div>
+        <div class="result">
+          <small>DISTANCE</small>
+          <strong id="finalDistance">0 m</strong>
+        </div>
+        <div class="result">
+          <small>BEST SCORE</small>
+          <strong id="finalBest">0</strong>
+        </div>
+        <div class="result">
+          <small>TOP SPEED</small>
+          <strong id="finalSpeed">1.0x</strong>
+        </div>
+      </div>
+
+      <button class="primary" id="restartBtn">
+        Race again ↻
+      </button>
+    </div>
+  </div>
+</body>
+</html>
